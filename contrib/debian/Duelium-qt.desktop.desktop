@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Duelium
+Comment=Duelium P2P Cryptocurrency
+Exec=Duelium-qt %u
+Terminal=false
+Type=Application
+Icon=Duelium128
+MimeType=x-scheme-handler/Duelium;
+Categories=Office;Finance;
+Name[en_US]=Duelium-qt.desktop

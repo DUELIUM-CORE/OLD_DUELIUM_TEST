@@ -1,0 +1,26 @@
+[Unit]
+Description=Duelium's distributed currency daemon
+After=network.target
+
+[Service]
+User=Duelium
+Group=Duelium
+
+Type=forking
+PIDFile=/var/lib/Dueliumd/Dueliumd.pid
+
+ExecStart=/usr/bin/Dueliumd -daemon -pid=/var/lib/Dueliumd/Dueliumd.pid \
+          -conf=/etc/Duelium/Duelium.conf -datadir=/var/lib/Dueliumd
+
+ExecStop=-/usr/bin/Duelium-cli -conf=/etc/Duelium/Duelium.conf \
+         -datadir=/var/lib/Dueliumd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
